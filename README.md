@@ -41,7 +41,7 @@ The ADC121C_MQ2 has a number of settings, which can be configured based on user 
 
 1.Automatic Conversion mode: When these bits are set to zeros, the automatic conversion mode is disabled. This is the case at power-up.When these bits are set to a non-zero value, the ADC will begin operating in automatic conversion mode.
 
-    mq2.setCycleTime(CYCLE_TIME_32);              // Tconvert x 32, 27 ksps
+       mq2.setCycleTime(CYCLE_TIME_32);              // Tconvert x 32, 27 ksps
     
 2.Alert Hold:This bit tells the Alert will self clear or not.
 
@@ -49,7 +49,7 @@ The ADC121C_MQ2 has a number of settings, which can be configured based on user 
   
    1: Alerts will not self-clear and are only cleared when a one is written to the alert high flag or the alert low flag in the Alert Status register.
 
-    mq2.setAlertHold(ALERT_HOLD_CLEAR);         // Alerts will self-clear
+      mq2.setAlertHold(ALERT_HOLD_CLEAR);         // Alerts will self-clear
 
 3.Alert Flag Enable:This bit indicates when an alert condition has occurred. When the Alert Bit Enable is set in the Configuration Register, this bit will be high if either alert flag is set in the Alert Status Register.Otherwise, this bit is a zero.
 
@@ -65,7 +65,7 @@ The ADC121C_MQ2 has a number of settings, which can be configured based on user 
   
    1: Enables the ALERT output pin
   
-   mq2.setAlertPin(ALERT_PIN_DISABLE);       // Disables the ALERT output pin
+     mq2.setAlertPin(ALERT_PIN_DISABLE);       // Disables the ALERT output pin
 
 5.Polarity: This bit configures the active level polarity of the ALERT output pin.
 
@@ -73,8 +73,14 @@ The ADC121C_MQ2 has a number of settings, which can be configured based on user 
  
    1: Sets the ALERT pin to active high
  
-     mq2.setPolarity(POLARITY_LOW);        // Sets the ALERT pin to active low
+      mq2.setPolarity(POLARITY_LOW);        // Sets the ALERT pin to active low
     
-6.Hydrogen and LPG gas measurement:The following command is used to measure the hydrogen and LPG gas measurement.
+6.Output measurement:The following commands are used to measure the concentration of different gases.
 
-     mq2.Measure_Hydrogen(-0.47, 2.3);     
+  1.Hydrogen gas measurement:The following command is used to measure the Hydrogen gas measurement.
+       
+        mq2.Measure_Hydrogen(-0.47, 2.3);     
+     
+  2.LPG gas measurement:The following command is used to measure the LPG gas measurement.
+    
+        mq2.Measure_LPG(-0.57, 2.3);
